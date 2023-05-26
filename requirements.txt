@@ -1,0 +1,7 @@
+ python==3.11
+ requests==2.26.0
+ selenium
+ python-chromedriver-binary==112.0.5615.49.0
+ pytest
+ allure-pytest
+ flake8
