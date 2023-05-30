@@ -1,6 +1,7 @@
 from .base_page import BasePage
 from .locators import ItemPageLocators
 
+
 class ProductPage(BasePage):
     def add_product_to_basket(self):
         add_to_cart_btn = self.browser.find_element(*ItemPageLocators.ADD_CART_BTN)
@@ -27,3 +28,4 @@ class ProductPage(BasePage):
     def should_disappear_success_message(self):
         assert self.is_disappeared(*ItemPageLocators.SUCCESS_MESSAGE), \
             "Success message is presented, but should not be"
+
