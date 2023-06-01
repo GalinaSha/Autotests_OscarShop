@@ -1,12 +1,12 @@
 import pytest
 
-from .pages.base_page import BasePage
-from .pages.basket_page import BasketPage
-from .pages.login_page import LoginPage
+from ..pages.base_page import BasePage
+from ..pages.basket_page import BasketPage
+from ..pages.login_page import LoginPage
 
 
 @pytest.mark.login_guest
-class TestLoginFromMainPage():
+class TestLoginFromMainPage:
     @pytest.mark.xfail(reason="Issue with success message display")
     def test_guest_can_go_to_login_page(self, browser):
         link = "http://selenium1py.pythonanywhere.com"
@@ -23,13 +23,8 @@ class TestLoginFromMainPage():
         page.should_be_login_link()
 
 
+@pytest.mark.guest_basket
 def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
-    """
-    1. Гость открывает главную страницу
-    2. Переходит в корзину по кнопке в шапке сайта
-    3. Ожидаем, что в корзине нет товаров
-    4. Ожидаем, что есть текст о том что корзина пуста
-    """
     link = "http://selenium1py.pythonanywhere.com"
     page = BasePage(browser, link)
     page.open()
